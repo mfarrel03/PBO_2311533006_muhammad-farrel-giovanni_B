@@ -57,7 +57,7 @@ public class LoginFrame extends JFrame {
 				} else {
 					JOptionPane.showMessageDialog(null,"Login Gagal");
 				
-			}
+				}
 		);
 		btnLogin.setBounds(167, 229, 89, 23);
 		contentPane.add(btnLogin);
