@@ -5,9 +5,13 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JTextField;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.Color;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class MainFrame extends JFrame {
 
@@ -35,7 +39,7 @@ public class MainFrame extends JFrame {
 	 */
 	public MainFrame() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 502, 324);
+		setBounds(100, 100, 509, 366);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -43,36 +47,41 @@ public class MainFrame extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Laundry Apps");
-		lblNewLabel.setBounds(33, 23, 95, 17);
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblNewLabel.setForeground(new Color(128, 128, 128));
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblNewLabel.setBounds(174, 11, 140, 46);
 		contentPane.add(lblNewLabel);
 		
 		JButton btnNewButton = new JButton("PESANAN");
-		btnNewButton.setBounds(22, 58, 111, 54);
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnNewButton.setBounds(23, 69, 140, 46);
 		contentPane.add(btnNewButton);
 		
 		JButton btnLayanan = new JButton("LAYANAN");
-		btnLayanan.setBounds(183, 58, 111, 54);
+		btnLayanan.setBounds(174, 68, 140, 46);
 		contentPane.add(btnLayanan);
 		
 		JButton btnPelanggan = new JButton("PELANGGAN");
-		btnPelanggan.setBounds(345, 58, 111, 54);
+		btnPelanggan.setBounds(326, 69, 140, 46);
 		contentPane.add(btnPelanggan);
 		
 		JButton btnPengguna = new JButton("PENGGUNA");
-		btnPengguna.setBounds(22, 138, 111, 54);
+		btnPengguna.setBounds(23, 144, 140, 46);
 		contentPane.add(btnPengguna);
 		
 		JButton btnLaporan = new JButton("LAPORAN");
-		btnLaporan.setBounds(183, 138, 111, 54);
+		btnLaporan.setBounds(174, 144, 140, 46);
 		contentPane.add(btnLaporan);
 		
 		JButton btnProfile = new JButton("PROFILE");
-		btnProfile.setBounds(345, 138, 111, 54);
+		btnProfile.setBounds(326, 144, 140, 46);
 		contentPane.add(btnProfile);
 		
-		JButton btnNewButton_1 = new JButton("KELUAR");
-		btnNewButton_1.setBounds(22, 212, 434, 37);
-		contentPane.add(btnNewButton_1);
+		JButton btnKeluar = new JButton("KELUAR");
+		btnKeluar.setBounds(23, 227, 443, 46);
+		contentPane.add(btnKeluar);
 	}
 }

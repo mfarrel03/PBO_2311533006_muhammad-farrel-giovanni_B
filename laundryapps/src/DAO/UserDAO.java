@@ -1,7 +1,6 @@
 package DAO;
 
 import java.util.List;
-
 import model.User;
 
 public interface UserDAO {
@@ -9,5 +8,4 @@ public interface UserDAO {
 	public List<User> show();
 	public void delete(String id);
 	public void update(User user);
-
 }

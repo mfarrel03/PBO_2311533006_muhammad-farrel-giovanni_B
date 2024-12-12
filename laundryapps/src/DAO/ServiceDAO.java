@@ -1,11 +1,12 @@
 package DAO;
 
 import java.util.List;
-import model.service;
+import model.Service;
 
 public interface ServiceDAO {
-    void save(service service);
-    List<service> show();
+    void save(Service service);
+    List<Service> show();
     void delete(String id);
-    void update(service service);
+    void update(Service service);
 }
+

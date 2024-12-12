@@ -9,8 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import confg.Database;
-import model.service;
+import config.Database;
+import model.Service;
 
 public class ServiceRepo implements ServiceDAO {
     private Connection connection;
@@ -26,7 +26,7 @@ public class ServiceRepo implements ServiceDAO {
     }
 
     @Override
-    public void save(service service) {
+    public void save(Service service) {
         PreparedStatement st = null;
         try {
             st = connection.prepareStatement(insert);
@@ -47,15 +47,15 @@ public class ServiceRepo implements ServiceDAO {
     }
 
     @Override
-    public List<service> show() {
-        List<service> services = new ArrayList<>();
+    public List<Service> show() {
+        List<Service> services = new ArrayList<>();
         Statement st = null;
         ResultSet rs = null;
         try {
             st = connection.createStatement();
             rs = st.executeQuery(select);
             while (rs.next()) {
-                service service = new service();
+                Service service = new Service();
                 service.setId(rs.getString("id"));
                 service.setJenis(rs.getString("jenis"));
                 service.setHarga(rs.getString("harga"));
@@ -76,7 +76,7 @@ public class ServiceRepo implements ServiceDAO {
     }
 
     @Override
-    public void update(service service) {
+    public void update(Service service) {
         PreparedStatement st = null;
         try {
             st = connection.prepareStatement(update);
@@ -89,7 +89,8 @@ public class ServiceRepo implements ServiceDAO {
             e.printStackTrace();
         } finally {
             try {
-                if (st != null) st.close();
+                if (st != null) 
+                	st.close();
             } catch (SQLException e) {
                 e.printStackTrace();
             }

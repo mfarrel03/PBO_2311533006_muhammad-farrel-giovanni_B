@@ -1,15 +1,14 @@
-
 package table;
 
 import javax.swing.table.AbstractTableModel;
 
-import model.service;
+import model.Service;
 import java.util.List;
 
 public class TableService extends AbstractTableModel{
-	List<service> ls;
+	List<Service> ls;
 	private String[] columnNames={"ID", "Jenis", "Harga", "Status"};
-	public TableService(List<service> ls) {
+	public TableService(List<Service> ls) {
 		this.ls = ls;
 		
 	}

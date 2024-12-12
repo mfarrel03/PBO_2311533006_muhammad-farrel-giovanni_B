@@ -1,4 +1,3 @@
-
 package ui;
 
 import java.awt.EventQueue;
@@ -8,11 +7,11 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 
-import DAO.CostumerRepo;
+import DAO.CustomerRepo;
 import DAO.ServiceRepo;
 import DAO.UserRepo;
-import model.costumer;
-import model.service;
+import model.Costumer;
+import model.Service;
 import model.User;
 import table.TableService;
 import table.TableUser;
@@ -105,7 +104,8 @@ public class ServiceFrame extends JFrame {
 			public void mouseClicked(MouseEvent e) {
                 id = tableService.getValueAt(tableService.getSelectedRow(), 0).toString();
                 txtJenis.setText(tableService.getValueAt(tableService.getSelectedRow(), 1).toString());
-                txtHarga.setText(tableService.getValueAt(tableService.getSelectedRow(), 2).toString());
+                Double harga = (Double) tableService.getValueAt(tableService.getSelectedRow(), 2);
+                txtHarga.setText(String.valueOf(harga.intValue()));
                 txtStatus.setText(tableService.getValueAt(tableService.getSelectedRow(), 3).toString());
             }
 		});
@@ -115,7 +115,7 @@ public class ServiceFrame extends JFrame {
 		JButton btnSave = new JButton("Save");
 		btnSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				service service = new service();
+				Service service = new Service();
 				service.setJenis(txtJenis.getText());
 				service.setHarga(txtHarga.getText());
                 service.setStatus(txtStatus.getText());
@@ -130,7 +130,8 @@ public class ServiceFrame extends JFrame {
 		JButton btnUpdate = new JButton("Update");
 		btnUpdate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				service service = new service();
+				Service service = new Service();
+				service.setId(id);
 				service.setJenis(txtJenis.getText());
 				service.setHarga(txtHarga.getText());
                 service.setStatus(txtStatus.getText());
@@ -173,7 +174,7 @@ public class ServiceFrame extends JFrame {
     }
 
     ServiceRepo srvc = new ServiceRepo();
-    List<service> ls;
+    List<Service> ls;
     public String id;
 
     public void loadTable() {
